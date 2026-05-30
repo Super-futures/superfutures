@@ -7,18 +7,18 @@
 
 /* ── CSS Variables ───────────────────────────────────────── */
 :root {
-  --ground:        #1a1714;
-  --ground-2:      #211e1a;
-  --ground-3:      #2c2824;
-  --text-primary:  #f4f0e8;
-  --text-secondary:#b8b0a0;
-  --text-muted:    #6e6760;
-  --accent-green:  #4a7c6f;
-  --accent-green-l:#5e9e8f;
-  --accent-amber:  #c4956a;
-  --accent-amber-l:#d4a97e;
-  --rule:          #3a342e;
-  --rule-light:    #4a4440;
+  --ground:        #f8f7f5;
+  --ground-2:      #f0ede8;
+  --ground-3:      #e8e4de;
+  --text-primary:  #1a1714;
+  --text-secondary:#4a4440;
+  --text-muted:    #8a8078;
+  --accent-green:  #2d6e63;
+  --accent-green-l:#3a8a7a;
+  --accent-amber:  #6b5b4a;
+  --accent-amber-l:#7d6d5a;
+  --rule:          #d4ccc0;
+  --rule-light:    #e0d8cc;
 
   --font-display:  'Playfair Display', Georgia, serif;
   --font-body:     'Source Serif 4', Georgia, serif;
