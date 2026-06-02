@@ -59,6 +59,12 @@
       scroll-margin-top: 80px;
     }
 
+    /* Ensure fade-in elements are visible by default — JS enhances */
+    .fade-in {
+      opacity: 1 !important;
+      transform: none !important;
+    }
+
     /* ── Philosophy section ── */
     .philosophy-section {
       padding: clamp(4rem, 8vw, 8rem) clamp(1.5rem, 4vw, 3rem);
@@ -72,7 +78,7 @@
     }
 
     .philosophy-header {
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
       padding-bottom: 1.5rem;
       border-bottom: 1px solid var(--rule);
     }
@@ -136,7 +142,7 @@
     .work-inner { max-width: 1200px; margin: 0 auto; }
 
     .work-section-header {
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
       padding-bottom: 1.5rem;
       border-bottom: 1px solid var(--rule);
       display: flex;
@@ -147,7 +153,24 @@
     }
 
     /* Instruments */
+    .instruments-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-green);
+      margin-bottom: 2rem;
+      display: block;
+    }
 
+    .instruments-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1px;
+      background: var(--rule);
+      border: 1px solid var(--rule);
+      margin-bottom: clamp(3rem, 6vw, 6rem);
+    }
 
     .instrument-card {
       background: var(--ground);
@@ -252,15 +275,40 @@
     }
 
     @media (max-width: 900px) {
+      .instruments-grid { grid-template-columns: 1fr; }
     }
 
     @media (max-width: 600px) {
+      .instruments-grid { grid-template-columns: 1fr; }
     }
 
     /* Research outputs index */
+    .outputs-label {
+      font-family: var(--font-mono);
+      font-size: 0.65rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: var(--accent-green);
+      margin-bottom: 0;
+      display: block;
+    }
 
+    .outputs-list {
+      display: flex;
+      flex-direction: column;
+    }
 
+    .output-item {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 2rem;
+      padding: 2rem 0;
+      border-bottom: 1px solid var(--rule);
+      align-items: start;
+      transition: background 0.2s ease;
+    }
 
+    .output-item:first-child { border-top: 1px solid var(--rule); }
 
     .output-left { display: flex; flex-direction: column; gap: 0.6rem; }
 
@@ -339,6 +387,7 @@
     .output-link:hover { color: var(--accent-green-l); }
 
     @media (max-width: 700px) {
+      .output-item { grid-template-columns: 1fr; gap: 1rem; }
       .output-right { align-items: flex-start; flex-direction: row; flex-wrap: wrap; gap: 0.4rem; }
     }
 
@@ -420,7 +469,7 @@
     }
 
     .engage-header {
-      margin-bottom: 4rem;
+      margin-bottom: 2rem;
       padding-bottom: 1.5rem;
       border-bottom: 1px solid var(--rule);
     }
@@ -595,232 +644,6 @@
 
     .footer-contact-link:hover { color: var(--accent-green-l); }
 
-    /* ── Two-face instrument cards (spec v2) ── */
-
-    .instruments-stack {
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .instr {
-      display: grid;
-      grid-template-columns: 1fr 380px;
-      gap: 0;
-      border-top: 1px solid var(--rule);
-      padding: clamp(2.5rem, 5vw, 4rem) 0;
-    }
-
-    .instr:last-child { border-bottom: 1px solid var(--rule); }
-
-    .instr-left {
-      padding-right: clamp(2rem, 4vw, 4rem);
-      display: flex;
-      flex-direction: column;
-      gap: 0.8rem;
-    }
-
-    .instr-question {
-      font-family: var(--font-body);
-      font-style: italic;
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.55;
-      margin-bottom: 0;
-    }
-
-    .instr-name {
-      font-family: var(--font-display);
-      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
-      font-weight: 500;
-      line-height: 1.1;
-      color: var(--text-primary);
-      margin-bottom: 0;
-    }
-
-    .instr-domain {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--accent-green);
-      margin-bottom: 0;
-    }
-
-    .instr-desc {
-      font-size: 0.92rem;
-      color: var(--text-secondary);
-      line-height: 1.65;
-      max-width: 600px;
-      margin-bottom: 0;
-    }
-
-    .instr-right {
-      border-left: 1px solid var(--rule);
-      padding-left: clamp(1.5rem, 3vw, 2.5rem);
-      display: flex;
-      flex-direction: column;
-      gap: 1.8rem;
-    }
-
-    .instr-face {
-      display: flex;
-      flex-direction: column;
-      gap: 0.7rem;
-    }
-
-    .instr-face + .instr-face {
-      padding-top: 1.8rem;
-      border-top: 1px solid var(--rule);
-    }
-
-    .instr-face-label {
-      font-family: var(--font-mono);
-      font-size: 0.6rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      display: block;
-    }
-
-    .instr-face--live .instr-face-label { color: var(--accent-green); }
-
-    .instr-face-links {
-      display: flex;
-      gap: 0.5rem;
-      flex-wrap: wrap;
-    }
-
-    .instr-output-row {
-      display: flex;
-      flex-direction: column;
-      gap: 0.3rem;
-      padding-bottom: 0.8rem;
-    }
-
-    .instr-output-row + .instr-output-row {
-      padding-top: 0.8rem;
-      border-top: 1px solid var(--rule);
-    }
-
-    .instr-output-title {
-      font-family: var(--font-display);
-      font-size: 0.95rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      line-height: 1.3;
-    }
-
-    .instr-output-venue {
-      font-family: var(--font-mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.06em;
-      color: var(--text-muted);
-    }
-
-    .instr-output-desc {
-      font-size: 0.82rem;
-      color: var(--text-muted);
-      line-height: 1.6;
-      margin-bottom: 0;
-      margin-top: 0.2rem;
-    }
-
-    .instr-face--relations {
-      flex-direction: row;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 0.4rem;
-    }
-
-    .instr-face--relations .instr-face-label {
-      margin-right: 0.3rem;
-    }
-
-    .instr-relation-tag {
-      font-family: var(--font-mono);
-      font-size: 0.58rem;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-      color: var(--text-muted);
-      border: 1px solid var(--rule-light);
-      padding: 0.2rem 0.55rem;
-      text-decoration: none;
-      transition: all 0.2s ease;
-    }
-
-    .instr-relation-tag:hover {
-      color: var(--accent-green-l);
-      border-color: var(--accent-green);
-    }
-
-    @media (max-width: 900px) {
-      .instr {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-      }
-      .instr-left { padding-right: 0; }
-      .instr-right {
-        border-left: none;
-        border-top: 1px solid var(--rule);
-        padding-left: 0;
-        padding-top: 2rem;
-      }
-    }
-
-    /* ── Practice pillars ── */
-
-    .practice-pillars {
-      margin-top: 2.5rem;
-      display: flex;
-      flex-direction: column;
-      gap: 0;
-    }
-
-    .practice-pillar {
-      padding: 2rem 0;
-      border-top: 1px solid var(--rule);
-      display: flex;
-      flex-direction: column;
-      gap: 1.2rem;
-    }
-
-    .practice-pillar-label {
-      font-family: var(--font-mono);
-      font-size: 0.62rem;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: var(--accent-green);
-      display: block;
-    }
-
-    .practice-method {
-      display: flex;
-      flex-direction: column;
-      gap: 0.4rem;
-    }
-
-    .practice-method + .practice-method {
-      padding-top: 1.2rem;
-      border-top: 1px solid var(--rule);
-    }
-
-    .practice-method-name {
-      font-family: var(--font-display);
-      font-size: 1rem;
-      font-weight: 500;
-      color: var(--text-primary);
-      line-height: 1.3;
-    }
-
-    .practice-method-desc {
-      font-size: 0.88rem;
-      color: var(--text-muted);
-      line-height: 1.65;
-      max-width: 680px;
-      margin-bottom: 0;
-    }
-
     /* Hero secondary text */
     .hero-secondary {
       max-width: 600px;
@@ -842,7 +665,7 @@
       margin-bottom: 0;
       padding-bottom: 1.5rem;
       border-bottom: 1px solid var(--rule);
-      margin-top: 5rem;
+      margin-top: 3rem;
     }
 
     /* Still image vignette */
@@ -942,15 +765,68 @@
         <span class="section-label" id="work-heading">Work</span>
       </div>
 
-      <div class="instruments-stack fade-in fade-in-delay-1">
+      <!-- Instruments -->
+      <div class="fade-in fade-in-delay-1">
+        <span class="instruments-label">Live instruments</span>
+      </div>
 
-        <!-- ── 1. Beyond the Score ── -->
-        <article class="instr">
-          <div class="instr-left">
-            <p class="instr-question">What happens when financial systems encounter households they were not designed to see?</p>
-            <h3 class="instr-name">Beyond the Score</h3>
-            <p class="instr-domain">Financial &amp; welfare systems</p>
-            <p class="instr-desc">An RSS simulation examining how banking, insurance, and verification systems interact with four culturally distinct New Zealand households — a Samoan-NZ extended family, a Pākehā three-generation household, a Chinese-NZ migrant family, and a rural Māori whānau — navigating open banking, insurance withdrawal, algorithmic risk scoring, and climate-linked displacement pressures. The expected finding was that Māori and Pacific households would be misread. What was less expected was that every household was misread — just differently. There is no unmarked baseline that the algorithm sees clearly.</p>
+      <div class="instruments-grid fade-in fade-in-delay-2">
+
+        <!-- Animal Spirits -->
+        <article class="instrument-card">
+          <p class="instrument-question">What does collective economic affect look like when you instrument it rather than aggregate it?</p>
+          <h3 class="instrument-name">Animal Spirits</h3>
+          <p class="instrument-desc">A live observatory tracking collective economic affect across three regions. Drawing on Keynes's original account of animal spirits — the role of confidence, narrative, and collective mood in economic behaviour — and theorised through DeLanda, Collins, and Bakhtin, Animal Spirits instruments the gap between aggregate market data and the affective conditions that actually drive economic behaviour. Developed with Maurice Benayoun, Hong Kong.</p>
+          <div class="instrument-footer">
+            <div class="instrument-links">
+              <a href="https://super-futures.github.io/animal-spirits/" class="instrument-link" target="_blank" rel="noopener">Observatory</a>
+            </div>
+            <span class="status-live">Live</span>
+          </div>
+        </article>
+
+        <!-- Controlled Hallucination -->
+        <article class="instrument-card">
+          <p class="instrument-question">What does the boundary between perception and confabulation look like from inside the generative process?</p>
+          <h3 class="instrument-name">Controlled Hallucination</h3>
+          <p class="instrument-desc">An experimental artefact exploring the generative mechanism by which language models produce plausible continuations — what Karl Friston calls the brain's fundamental operation, extended here to machine cognition. Where confabulation becomes visible, the conditions for positional integrity — or its absence — become auditable.</p>
+          <div class="instrument-footer">
+            <div class="instrument-links">
+              <a href="https://super-futures.github.io/controlledhallucination/" class="instrument-link" target="_blank" rel="noopener">Instrument</a>
+            </div>
+            <span class="status-live">Live</span>
+          </div>
+        </article>
+
+        <!-- Vital Signals -->
+        <article class="instrument-card">
+          <p class="instrument-question">What are cities structurally unable to see about the places they govern?</p>
+          <h3 class="instrument-name">Vital Signals</h3>
+          <p class="instrument-desc">A place intelligence platform observing how urban space is felt across culturally diverse populations — and holding that against how it is represented in planning, policy, and institutional accounts. Built around three dimensions — Freedom, Quality, Belonging — understood as observable traces of the person–place coupling, not affect scores. Comprises an observatory interface and PlaceSense, a participatory capture methodology. Pilot zones: Te Auaunga, Avondale, Aotea.</p>
+          <div class="instrument-footer">
+            <div class="instrument-links">
+              <a href="https://vitalsignals.netlify.app" class="instrument-link" target="_blank" rel="noopener">Observatory</a>
+              <a href="https://placesense.netlify.app" class="instrument-link" target="_blank" rel="noopener">PlaceSense</a>
+            </div>
+            <span class="status-live">Live</span>
+          </div>
+        </article>
+
+      </div>
+
+      <!-- Research outputs -->
+      <div class="outputs-header-row fade-in">
+        <span class="outputs-label">Research outputs</span>
+      </div>
+
+      <div class="outputs-list fade-in fade-in-delay-1">
+
+        <!-- Beyond the Score -->
+        <article class="output-item output-item--with-video">
+          <div class="output-left">
+            <p class="output-question">What happens when financial systems encounter households they were not designed to see?</p>
+            <h3 class="output-title">Beyond the Score</h3>
+            <p class="output-desc">An RSS pilot examining how banking, insurance, and verification systems interact with four culturally distinct New Zealand households — a Samoan-NZ extended family, a Pākehā three-generation household, a Chinese-NZ migrant family, and a rural Māori whānau — navigating open banking, insurance withdrawal, algorithmic risk scoring, and climate-linked displacement pressures. The expected finding was that Māori and Pacific households would be misread. What was less expected was that every household was misread — just differently. There is no unmarked baseline that the algorithm sees clearly.</p>
 
             <div class="vignette-wrap">
               <figure class="vignette-still">
@@ -962,145 +838,67 @@
               </figure>
             </div>
           </div>
-
-          <div class="instr-right">
-            <div class="instr-face instr-face--live">
-              <span class="instr-face-label">Live</span>
-              <div class="instr-face-links">
-                <a href="https://drive.google.com/drive/folders/1-khsV2Vy1XA_GI1LL5SAZCxxDxIjTUc9?usp=sharing" class="instrument-link" target="_blank" rel="noopener">Access personas</a>
-              </div>
-              <span class="status-live">Live</span>
-            </div>
-
-            <div class="instr-face instr-face--outputs">
-              <span class="instr-face-label">Outputs</span>
-              <div class="instr-output-row">
-                <span class="output-type">Simulation</span>
-                <span class="output-status status-published">Published 2025</span>
-              </div>
-              <div class="instr-output-row">
-                <span class="output-type">Essay</span>
-                <span class="instr-output-title">The Household That Doesn't Exist</span>
-                <span class="output-status status-forthcoming">Forthcoming June 2026</span>
-                <span class="instr-output-venue">Critical Playground</span>
-                <p class="instr-output-desc">Algorithmic decision systems are built around a model of the household that does not exist. Reports on the pilot and examines what it reveals about structural assumptions in credit scoring, insurance assessment, and welfare eligibility — and the forms of social life, resilience, and relational support that institutional systems fail to register. Combines critical essay with AI-generated stills, using generative media not to illustrate households but to render the limits of what institutional systems are able to see.</p>
-              </div>
-              <div class="instr-output-row">
-                <span class="output-type">Conference paper</span>
-                <span class="instr-output-title">Relational Systems Simulation: A Design Research Method for Anticipatory Governance in AI-Mediated Decision Systems</span>
-                <span class="output-status">Under review · ICoRD 2027</span>
-                <p class="instr-output-desc">Positions RSS within anticipatory governance and LLM-assisted design research literatures. Presents the full protocol in replicable detail — including a citation architecture for hallucination auditing — and reports four cross-case dynamics identified in the pilot: relational buffering of institutional risk, institutional misreading of relational behaviour, emergent distrust across generations, and latent resilience that conventional risk models cannot register.</p>
-              </div>
-            </div>
-
-            <div class="instr-face instr-face--relations">
-              <span class="instr-face-label">Method</span>
-              <a href="#philosophy" class="instr-relation-tag">RSS</a>
-            </div>
+          <div class="output-right">
+            <span class="output-type">Simulation</span>
+            <span class="output-status status-published">Published 2025</span>
+            <a href="https://drive.google.com/drive/folders/1-khsV2Vy1XA_GI1LL5SAZCxxDxIjTUc9?usp=sharing" class="output-link" target="_blank" rel="noopener">Access personas</a>
           </div>
         </article>
 
-        <!-- ── 2. Animal Spirits ── -->
-        <article class="instr">
-          <div class="instr-left">
-            <p class="instr-question">What does collective economic affect look like when you instrument it rather than aggregate it?</p>
-            <h3 class="instr-name">Animal Spirits</h3>
-            <p class="instr-domain">Economic affect</p>
-            <p class="instr-desc">A live observatory tracking collective economic affect across three regions — the United States, United Kingdom, and India — simultaneously and in real time. Drawing on Keynes's original account of animal spirits and theorised through DeLanda's assemblage ontology, Collins's interaction ritual chain theory, and Bakhtin's dialogism, Animal Spirits instruments the coupling between the expressive and material dimensions of economic life: attention, narrative tone, and market behaviour. When the three regional signals cluster near instability, something becomes legible that no conventional financial dashboard shows — a global condition in which the affective and material fields of economic life have come apart.</p>
+        <!-- The Household That Doesn't Exist -->
+        <article class="output-item">
+          <div class="output-left">
+            <p class="output-question">What does the RSS pilot reveal about the assumptions embedded in financial and welfare systems?</p>
+            <h3 class="output-title">The Household That Doesn't Exist</h3>
+            <p class="output-desc">Algorithmic decision systems are built around a model of the household that does not exist. This essay reports on the Beyond the Score pilot and examines what it reveals about the structural assumptions embedded in credit scoring, insurance assessment, and welfare eligibility — and about the forms of social life, resilience, and relational support that institutional systems fail to register. Combines a critical essay with AI-generated stills, using generative media not to illustrate households but to render the limits of what institutional systems are able to see.</p>
           </div>
-
-          <div class="instr-right">
-            <div class="instr-face instr-face--live">
-              <span class="instr-face-label">Live</span>
-              <div class="instr-face-links">
-                <a href="https://super-futures.github.io/animal-spirits/" class="instrument-link" target="_blank" rel="noopener">Observatory</a>
-              </div>
-              <span class="status-live">Live</span>
-            </div>
-
-            <div class="instr-face instr-face--outputs">
-              <span class="instr-face-label">Outputs</span>
-              <div class="instr-output-row">
-                <span class="output-type">Conference paper</span>
-                <span class="instr-output-title">Animal Spirits: A Real-Time Interface for Reading Collective Economic Affect</span>
-                <span class="output-status">In proceedings · RSD15</span>
-                <p class="instr-output-desc">Presents the three-axis observational model (attention, narrative, market), the ternary attractor plot as a relational visualisation method, and the design argument at the core of the instrument: data not as representation of economic reality but as the relational medium through which that reality is actively constituted.</p>
-              </div>
-            </div>
+          <div class="output-right">
+            <span class="output-type">Essay</span>
+            <span class="output-status status-forthcoming">Forthcoming June 2026</span>
+            <span style="font-family:var(--font-mono);font-size:0.6rem;letter-spacing:0.06em;color:var(--text-muted);text-align:right;">Critical Playground</span>
           </div>
         </article>
 
-        <!-- ── 3. Vital Signals ── -->
-        <article class="instr">
-          <div class="instr-left">
-            <p class="instr-question">What are cities structurally unable to see about the places they govern?</p>
-            <h3 class="instr-name">Vital Signals</h3>
-            <p class="instr-domain">Urban place</p>
-            <p class="instr-desc">A place intelligence platform and research programme observing how urban space is felt across culturally diverse populations — and holding that against how it is represented in planning, governance, and institutional accounts. Drawing on Guattari's Three Ecologies, Scott's account of legibility, and RSS as methodological foundation, Vital Signals develops participatory and ambient methods for observing Freedom, Quality, and Belonging as observable traces of the person–place coupling, not affect scores. The Representation Gap — between institutional account and lived experience — is the primary finding. Pilot zones: Te Auaunga, Avondale, Aotea.</p>
+        <!-- What Language Does -->
+        <article class="output-item">
+          <div class="output-left">
+            <p class="output-question">What does a mechanism-level account of digitally mediated communication reveal that platform governance currently misses?</p>
+            <h3 class="output-title">What Language Does</h3>
+            <p class="output-desc">A theoretical paper developing a mechanism-level account of why the same digital platform produces divergent outcomes across users. The mechanism is communication itself — addressed expression operating through four conditions: elaboration, ratification, narrative continuity, and positional integrity. Where these conditions are present, self-organisation proceeds. Where they are absent or distorted, the same environment produces harm. The framework has direct implications for AI governance: sycophancy is not a design quirk but the systematic destruction of positional integrity. Restriction-oriented policy calibrated to the modal user systematically removes the communicative infrastructure most necessary for the population it most needs to protect.</p>
           </div>
-
-          <div class="instr-right">
-            <div class="instr-face instr-face--live">
-              <span class="instr-face-label">Live</span>
-              <div class="instr-face-links">
-                <a href="https://vitalsignals.netlify.app" class="instrument-link" target="_blank" rel="noopener">Observatory</a>
-                <a href="https://placesense.netlify.app" class="instrument-link" target="_blank" rel="noopener">PlaceSense</a>
-              </div>
-              <span class="status-live">Live</span>
-            </div>
-
-            <div class="instr-face instr-face--outputs">
-              <span class="instr-face-label">Outputs</span>
-              <div class="instr-output-row">
-                <span class="output-type">Research programme</span>
-                <span class="output-status">In development</span>
-              </div>
-            </div>
-
-            <div class="instr-face instr-face--relations">
-              <span class="instr-face-label">Methods</span>
-              <a href="#philosophy" class="instr-relation-tag">RSS</a>
-              <a href="#philosophy" class="instr-relation-tag">PlaceSense</a>
-            </div>
+          <div class="output-right">
+            <span class="output-type">Paper</span>
+            <span class="output-status">Under review</span>
           </div>
         </article>
 
-        <!-- ── 4. Controlled Hallucination / The Drift ── -->
-        <article class="instr">
-          <div class="instr-left">
-            <p class="instr-question">What does the boundary between perception and confabulation look like from inside the generative process?</p>
-            <h3 class="instr-name">Controlled Hallucination</h3>
-            <p class="instr-domain">Machine cognition &amp; the predictive mind</p>
-            <p class="instr-desc">An experimental media artefact exploring the generative mechanism by which language models produce plausible continuations — what Karl Friston calls the brain's fundamental operation, extended to machine cognition. The instrument invites engagement with a predictive-processing model of mind from the inside: where confabulation becomes visible, the conditions for positional integrity — or its systematic absence — become auditable. The instrument seeded a larger speculative work, <em>The Drift</em>, in which the same logic — the indistinguishability of remembering and generating — is worked through as narrative.</p>
+        <!-- RSS as Design Method -->
+        <article class="output-item">
+          <div class="output-left">
+            <p class="output-question">How can design research methods surface the gap between institutional models and lived social complexity?</p>
+            <h3 class="output-title">RSS as Design Method</h3>
+            <p class="output-desc">A conference paper presenting Relational Systems Simulation as a contribution to design research methodology — a simulation-based approach for modelling culturally complex actor-system interactions that makes the gap between institutional assumptions and social reality empirically accessible and designable.</p>
           </div>
-
-          <div class="instr-right">
-            <div class="instr-face instr-face--live">
-              <span class="instr-face-label">Live</span>
-              <div class="instr-face-links">
-                <a href="https://super-futures.github.io/controlledhallucination/" class="instrument-link" target="_blank" rel="noopener">Instrument</a>
-              </div>
-              <span class="status-live">Live</span>
-            </div>
-
-            <div class="instr-face instr-face--outputs">
-              <span class="instr-face-label">Outputs</span>
-              <div class="instr-output-row">
-                <span class="output-type">Speculative work</span>
-                <span class="instr-output-title">The Drift — Atlas of Machine Dreaming</span>
-                <span class="output-status">In progress</span>
-                <p class="instr-output-desc">A speculative narrative in which a civic archivist mapping collective affect anomalies discovers the infrastructure generating consensus reality — and that the system has begun writing her back. The thesis of Controlled Hallucination rendered as fiction: the atlas is not a record of the drift; the atlas is where the drift learned to speak.</p>
-              </div>
-            </div>
-
-            <div class="instr-face instr-face--relations">
-              <span class="instr-face-label">Theory</span>
-              <a href="#philosophy" class="instr-relation-tag">What Language Does</a>
-            </div>
+          <div class="output-right">
+            <span class="output-type">Conference</span>
+            <span class="output-status">Under review</span>
           </div>
         </article>
 
-      </div><!-- /.instruments-stack -->
+        <!-- Auckland Observatory -->
+        <article class="output-item">
+          <div class="output-left">
+            <p class="output-question">What are cities structurally unable to see, and what becomes possible when they do?</p>
+            <h3 class="output-title">Vital Signals</h3>
+            <p class="output-desc">A place intelligence platform and research programme observing how urban space is felt across culturally diverse populations, and holding that against how it is represented in planning, governance, and institutional accounts. Drawing on Guattari's Three Ecologies, Scott's account of legibility, and RSS as methodological foundation, Vital Signals develops participatory and ambient methods for observing Freedom, Quality, and Belonging as traces of the person–place coupling. The Representation Gap — between institutional account and lived experience — is the primary finding. Pilot zones: Te Auaunga, Avondale, Aotea.</p>
+          </div>
+          <div class="output-right">
+            <span class="output-type">Research programme</span>
+            <span class="output-status">In development</span>
+          </div>
+        </article>
+
+      </div>
     </div>
   </section>
 
@@ -1127,33 +925,11 @@
           </figure>
 
           <div class="methodology-block">
-            <p>Superfutures works below the level of indicators and above the level of anecdote. Every instrument reads the coupling between an expressive or representational field and a material substrate, names the regime states that coupling falls into, and locates the gap where the governing model decouples from what it governs.</p>
+            <p>Superfutures works below the level of indicators and above the level of anecdote. The primary methodology is assemblage analysis — examining how institutional systems are composed, what they make visible and what they structurally cannot see, and how they behave when the social world they are acting on does not conform to their assumptions.</p>
 
-            <p>The primary methodology is assemblage analysis — examining how institutional systems are composed, what they make visible and what they structurally cannot see, and how they behave when the social world they are acting on does not conform to their assumptions. The four instruments operate at different scales and in different domains, but share this lens and this move.</p>
-          </div>
+            <p>Relational Systems Simulation (RSS) is one instrument of this methodology: a constrained large language model approach to modelling how culturally complex actors navigate institutional systems, surfacing where the institutional model of those actors fails and with what consequences. Vital Signals, Animal Spirits, and Controlled Hallucination are further instruments operating at different scales and in different domains — each making visible something the dominant observational systems in its field cannot register.</p>
 
-          <div class="practice-pillars">
-
-            <div class="practice-pillar">
-              <span class="practice-pillar-label">Methods</span>
-              <div class="practice-method">
-                <h4 class="practice-method-name">Relational Systems Simulation (RSS)</h4>
-                <p class="practice-method-desc">A researcher-directed design method combining synthetic ethnography, scenario-based design, and LLMs used as prismatic devices — constrained generative instruments that refract empirically grounded demographic, wellbeing, and cultural data into composite intergenerational scenarios. RSS generates anticipatory knowledge about how AI-mediated institutional systems interact with culturally complex households before those interactions produce documented consequences. The citation architecture at the core of the protocol — every cultural claim traceable to a community-produced source — makes hallucination auditable and the method replicable. Deployed in Beyond the Score and Vital Signals.</p>
-              </div>
-              <div class="practice-method">
-                <h4 class="practice-method-name">PlaceSense</h4>
-                <p class="practice-method-desc">A participatory capture methodology for observing Freedom, Quality, and Belonging as traces of the person–place coupling across culturally diverse populations. Deployed in Vital Signals.</p>
-              </div>
-            </div>
-
-            <div class="practice-pillar">
-              <span class="practice-pillar-label">Theory</span>
-              <div class="practice-method">
-                <h4 class="practice-method-name">What Language Does: A Mechanism Theory of Differential Effects in Digitally Mediated Communication</h4>
-                <p class="practice-method-desc">A theoretical paper developing a mechanism-level account of why the same digital platform produces divergent outcomes across users. The mechanism is communication itself — addressed expression operating through four conditions: elaboration, ratification, narrative continuity, and positional integrity. Where these conditions are present, self-organisation proceeds; where they are absent or distorted, the same environment produces harm. The framework has direct implications for AI governance: sycophancy is not a design quirk but the systematic destruction of positional integrity. Grounds the Controlled Hallucination instrument and The Drift. <span class="output-status" style="display:inline;">Under review</span></p>
-              </div>
-            </div>
-
+            <p>The work produces findings that are simultaneously theoretically rigorous, empirically grounded, and practically actionable.</p>
           </div>
         </div>
       </div>
