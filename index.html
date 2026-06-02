@@ -2498,20 +2498,16 @@ em { font-style: italic; }
   </footer>
 
   <script>
-    // If IntersectionObserver never fires (e.g. file:// preview, offscreen elements),
-    // force all fade-in elements visible after a short delay.
     function revealAll() {
       document.querySelectorAll('.fade-in').forEach(function(el) {
         el.classList.add('visible');
       });
     }
     window.addEventListener('load', function() {
-      // Immediate reveal if page opened via file:// 
       if (window.location.protocol === 'file:') { revealAll(); return; }
-      // Otherwise give the observer 600ms to work, then force-reveal anything missed
       setTimeout(revealAll, 600);
     });
   </script>
-  <script src="js/main.js"></script>
+  <script src="js/main.js" onerror="revealAll()"></script>
 </body>
 </html>
