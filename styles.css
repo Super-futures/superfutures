@@ -260,7 +260,7 @@ body.nav-on-dark .site-nav:not(.scrolled) { color: #FFFFFF; }
 .practice-image { margin: 2.5rem 0 0; width: 100%; }
 .practice-image img { width: 100%; display: block; object-fit: cover; max-height: 460px; border-radius: 3px; background: rgba(255,255,255,0.12); min-height: 160px; }
 .methodology-block { margin-top: 2rem; padding-top: 2rem; border-top: 1px solid var(--rule); }
-.methodology-block p { color: var(--ink-soft); font-size: 0.98rem; max-width: 66ch; margin-bottom: 1em; }
+.methodology-block p { color: var(--ink-soft); font-size: 1.15rem; line-height: 1.72; max-width: 62ch; margin-bottom: 1.3em; }
 .practice-pillars { margin-top: 2.5rem; display: flex; flex-direction: column; }
 .practice-pillar { padding: 2rem 0; border-top: 1px solid var(--rule); display: flex; flex-direction: column; gap: 1.2rem; }
 .practice-pillar-label {
