@@ -1,7 +1,7 @@
 /* ════════════════════════════════════════════════════════════════
-   SUPERFUTURES — shared styles across all five pages
+   PROPENSITIES — shared styles across all five pages
    System: four hues are the instruments (Work only). One hue —
-   violet — is Superfutures itself: hero, practice, about, and every
+   violet — is Propensities itself: hero, practice, about, and every
    accent, chip, button, and focus state elsewhere. White is the
    working ground for the index (Work) and the contact page (Engage).
    Type: Archivo (display) · Source Serif 4 (reading) · DM Mono (meta)
@@ -26,7 +26,7 @@
   --c-jade-ink:     #00654F;
   --c-lapis-ink:    #1638A6;
 
-  /* ── The one Superfutures identity colour — everywhere else ── */
+  /* ── The one Propensities identity colour — everywhere else ── */
   --c-brand:     #8A3FE8;
   --c-brand-ink: #5A1FA6;
 
